@@ -3,7 +3,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <signal.h>
-#include <windows.h>
 
 // Начальный размер динамической таблицы строк
 #define INITIAL_CAPACITY 64
@@ -41,8 +40,6 @@ void on_alarm(int sig)
 
 int main(int argc, char *argv[])
 {
-    SetConsoleOutputCP(65001);
-
     // 1. Проверяем, что пользователь передал имя файла при запуске: ./line_lookup test.txt
     if (argc != 2) {
         fprintf(stderr, "Использование: %s <имя_файла>\n", argv[0]);
